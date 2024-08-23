@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: 
+      - '*'
+
+jobs:
+  grep:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: grep --version
+      - run: grep -Po '(?<=<Version>)\S+(?=<\\/Version>)' CelesteStudio.csproj
